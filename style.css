@@ -201,3 +201,68 @@ table th{
 html{
     scroll-behavior:smooth;
 }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+    background:#000;
+    color:#fff;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.hero img,
+.banner img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.card{
+    width:320px;
+    max-width:100%;
+}
+
+.qr{
+    width:220px;
+    display:block;
+    margin:20px auto;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+@media(max-width:768px){
+    nav{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .card{
+        width:95%;
+    }
+
+    h1{
+        font-size:34px;
+    }
+    }
