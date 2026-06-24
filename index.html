@@ -1,34 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hungama Esports</title>
-<link rel="stylesheet" href="style.css">
-</head>
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:url("f89ac5e8-5df2-4eb0-aceb-96f183080add.png") no-repeat center center fixed;
+    background-size:cover;
+    color:#fff;
+}
 
-<body>
+.overlay{
+    width:100%;
+    min-height:100vh;
+    background:rgba(0,0,0,0.55);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
 
-<div class="overlay">
+h1{
+    color:#00ff99;
+    font-size:50px;
+    margin:10px 0;
+}
 
-<h1>🏆 HUNGAMA ESPORTS</h1>
-<h2>BGMI TOURNAMENT</h2>
+h2{
+    color:#ffffff;
+    font-size:36px;
+    margin-bottom:30px;
+}
 
-<div class="card">
+.card{
+    background:rgba(255,255,255,0.12);
+    padding:25px;
+    border-radius:20px;
+    width:90%;
+    max-width:450px;
+    backdrop-filter:blur(6px);
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
 
-<p><b>Entry Fee:</b> ₹50</p>
-<p><b>1st Prize:</b> ₹150</p>
-<p><b>2nd Prize:</b> ₹100</p>
-<p><b>3rd Prize:</b> ₹50</p>
+.card p{
+    font-size:24px;
+    margin:18px 0;
+}
 
-<p><b>Map:</b> Livik</p>
-<p><b>Mode:</b> Squad</p>
-<p><b>Date:</b> 25 June</p>
-<p><b>Time:</b> 6:00 PM</p>
-
-</div>
-
-</div>
-
-</body>
-</html>
+.card b{
+    color:#00ff99;
+}
