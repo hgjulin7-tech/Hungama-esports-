@@ -151,3 +151,53 @@ text-align:center;
 border-top:2px solid red;
 font-size:18px;
 }
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:20px 0;
+}
+
+.social-links a{
+    color:#fff;
+    background:#c00000;
+    padding:12px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    background:#ff0000;
+    box-shadow:0 0 15px red;
+}
+
+.qr{
+    width:220px;
+    max-width:90%;
+    border:3px solid red;
+    border-radius:10px;
+    margin:20px auto;
+    display:block;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th,table td{
+    border:1px solid #444;
+    padding:12px;
+    text-align:center;
+}
+
+table th{
+    background:#c00000;
+}
+
+html{
+    scroll-behavior:smooth;
+}
