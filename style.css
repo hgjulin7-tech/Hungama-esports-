@@ -2,7 +2,7 @@ body{
     margin:0;
     padding:0;
     font-family:Arial, sans-serif;
-    background:url("96cfe6f2-1bce-4dab-a6e0-1538a4468d25.png") no-repeat center center fixed;
+    background:url("f89ac5e8-5df2-4eb0-aceb-96f183080add.png") no-repeat center center fixed;
     background-size:cover;
     color:#fff;
     text-align:center;
@@ -21,32 +21,33 @@ body{
     background:rgba(255,255,255,0.1);
     backdrop-filter:blur(8px);
     border-radius:15px;
-    padding:25px;
+    padding:20px;
     width:90%;
     max-width:450px;
+    box-shadow:0 0 20px rgba(0,255,153,0.4);
 }
 
 h1{
     color:#00ff99;
-    margin-bottom:10px;
+    margin-bottom:15px;
 }
 
 p{
     font-size:18px;
-    margin-bottom:20px;
+    margin:10px 0;
 }
 
 button{
     padding:12px 25px;
     font-size:18px;
-    border:none;
-    border-radius:8px;
     background:#00ff99;
     color:#000;
+    border:none;
+    border-radius:8px;
     cursor:pointer;
-    font-weight:bold;
+    transition:0.3s;
 }
 
 button:hover{
-    background:#00cc77;
+    background:#00cc7a;
 }
