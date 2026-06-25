@@ -1,163 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-<title>Hungama Esports Registration</title>
+body{
+    background:#0d0d0d;
+    color:#fff;
+    padding:20px;
+}
 
-<link rel="stylesheet" href="style.css">
-</head>
+.container{
+    max-width:700px;
+    margin:auto;
+    background:#1a1a1a;
+    padding:20px;
+    border:2px solid red;
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(255,0,0,.4);
+}
 
-<body>
+h1{
+    text-align:center;
+    color:#ff0000;
+    margin-bottom:10px;
+}
 
-<div class="container">
+p{
+    text-align:center;
+    color:#ccc;
+    margin-bottom:20px;
+}
 
-<h1>HUNGAMA ESPORTS</h1>
-<p>BGMI Tournament Registration</p>
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:6px;
+    font-size:18px;
+    font-weight:bold;
+}
 
-<form id="registrationForm">
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#f1f1f1;
+    font-size:16px;
+    outline:none;
+}
 
-<label>Team Name</label>
-<input type="text" id="teamName" required>
+input:focus,
+select:focus,
+textarea:focus{
+    border:2px solid red;
+}
 
-<label>Player 1 Name</label>
-<input type="text" id="player1Name" required>
+#duoFields,
+#squadFields{
+    display:none;
+}
 
-<label>Player 1 BGMI UID</label>
-<input type="number" id="player1UID" required>
+button{
+    width:100%;
+    margin-top:20px;
+    padding:16px;
+    background:#d40000;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
 
-<label>Player 1 IGN</label>
-<input type="text" id="player1IGN" required>
+button:hover{
+    background:#ff1a1a;
+}
 
-<label>Player 1 Role</label>
-<select id="player1Role">
-<option>IGL</option>
-<option>Rusher</option>
-<option>Assaulter</option>
-<option>Spotter</option>
-</select>
+.checkbox{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:20px;
+}
 
-<label>Mobile Number</label>
-<input type="tel" id="mobile" required>
+.checkbox input{
+    width:20px;
+    height:20px;
+}
 
-<label>WhatsApp Number</label>
-<input type="tel" id="whatsapp" required>
+img{
+    width:100%;
+    border-radius:12px;
+    margin-bottom:20px;
+}
 
-<label>Tournament Type</label>
+@media(max-width:600px){
 
-<select id="tournamentType" onchange="showPlayers()" required>
+.container{
+    padding:15px;
+}
 
-<option value="">Select</option>
+h1{
+    font-size:28px;
+}
 
-<option value="solo">Solo</option>
+label{
+    font-size:16px;
+}
 
-<option value="duo">Duo</option>
+button{
+    font-size:18px;
+}
 
-<option value="squad">Squad</option>
-
-</select>
-
-<label>Map</label>
-
-<select required>
-
-<option>Erangel</option>
-
-<option>Livik</option>
-
-<option>Miramar</option>
-
-<option>Sanhok</option>
-
-<option>Vikendi</option>
-
-</select>
-
-<div id="duoFields" style="display:none;">
-<label>Player 2 Name</label>
-<input type="text" id="player2Name">
-
-<label>Player 2 BGMI UID</label>
-<input type="number" id="player2UID">
-
-<label>Player 2 IGN</label>
-<input type="text" id="player2IGN">
-
-<label>Player 2 Role</label>
-<select id="player2Role">
-    <option>IGL</option>
-    <option>Rusher</option>
-    <option>Assaulter</option>
-    <option>Spotter</option>
-</select>
-
-</div>
-
-<div id="squadFields" style="display:none;">
-
-<h2>Player 3</h2>
-
-<label>Player 3 Name</label>
-<input type="text" id="player3Name">
-
-<label>Player 3 BGMI UID</label>
-<input type="number" id="player3UID">
-
-<label>Player 3 IGN</label>
-<input type="text" id="player3IGN">
-
-<label>Player 3 Role</label>
-<select id="player3Role">
-    <option>IGL</option>
-    <option>Rusher</option>
-    <option>Assaulter</option>
-    <option>Spotter</option>
-</select>
-
-<h2>Player 4</h2>
-
-<label>Player 4 Name</label>
-<input type="text" id="player4Name">
-
-<label>Player 4 BGMI UID</label>
-<input type="number" id="player4UID">
-
-<label>Player 4 IGN</label>
-<input type="text" id="player4IGN">
-
-<label>Player 4 Role</label>
-<select id="player4Role">
-    <option>IGL</option>
-    <option>Rusher</option>
-    <option>Assaulter</option>
-    <option>Spotter</option>
-</select>
-
-</div>
-</div>
-
-<label>Payment Screenshot</label>
-<input type="file" id="payment" accept="image/*" required>
-
-<div class="qr-box">
-    <h3>Scan QR Code</h3>
-    <img src="f89ac5e8-5df2-4eb0-aceb-96f18308.png" alt="QR Code" width="200">
-    <p>Payment Verified Within 5 Minutes</p>
-</div>
-
-<label>
-    <input type="checkbox" id="agree" required>
-    I Agree Tournament Rules
-</label>
-
-<button type="submit">
-    SUBMIT REGISTRATION
-</button>
-
-</form>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+}
