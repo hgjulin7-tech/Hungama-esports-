@@ -484,23 +484,6 @@ if (viewBtn) {
         }  
 
     });  
-}
-
-})
-
-
-const adminBtn = document.getElementById("adminBtn");
-const adminPanel = document.getElementById("adminPanel");
-
-adminBtn.addEventListener("click", () => {
-    if (adminPanel.style.display === "none") {
-        adminPanel.style.display = "block";
-    } else {
-        adminPanel.style.display = "none";
-    }
-});
-
-const password = prompt("Enter Admin Password");
 
 const adminBtn = document.getElementById("adminBtn");
 const adminPanel = document.getElementById("adminPanel");
