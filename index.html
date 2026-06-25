@@ -1,170 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hungama Esports</title>
+<title>Hungama Esports Registration</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
-<header>
+<div class="container">
 
-<div class="logo">
-HUNGAMA <span>ESPORTS</span>
-</div>
+<h1>HUNGAMA ESPORTS</h1>
+<p>BGMI Tournament Registration</p>
 
-<nav>
+<form id="registrationForm">
 
-<a href="#home">Home</a>
+<label>Team Name</label>
+<input type="text" id="teamName" required>
 
-<a href="#tournament">Tournament</a>
+<label>Player 1 Name</label>
+<input type="text" id="player1Name" required>
 
-<a href="#leaderboard">Leaderboard</a>
+<label>Player 1 BGMI UID</label>
+<input type="number" id="player1UID" required>
 
-<a href="#contact">Contact</a>
+<label>Player 1 IGN</label>
+<input type="text" id="player1IGN" required>
 
-<a href="register.html" class="register-btn">
-Register
-</a>
+<label>Player 1 Role</label>
+<select id="player1Role">
+<option>IGL</option>
+<option>Rusher</option>
+<option>Assaulter</option>
+<option>Spotter</option>
+</select>
 
-</nav>
+<label>Mobile Number</label>
+<input type="tel" id="mobile" required>
 
-</header>
+<label>WhatsApp Number</label>
+<input type="tel" id="whatsapp" required>
 
-<section id="home" class="hero">
+<label>Tournament Type</label>
 
-<div class="overlay">
+<select id="tournamentType" onchange="showPlayers()" required>
 
-<h1>
+<option value="">Select</option>
 
-WELCOME TO
+<option value="solo">Solo</option>
 
-<br>
+<option value="duo">Duo</option>
 
-<span>HUNGAMA ESPORTS</span>
+<option value="squad">Squad</option>
 
-</h1>
+</select>
 
-<p>
+<label>Map</label>
 
-India's Premium BGMI Tournament Platform
+<select required>
 
-</p>
+<option>Erangel</option>
 
-<a href="register.html" class="btn">
+<option>Livik</option>
 
-REGISTER NOW
+<option>Miramar</option>
 
-</a>
+<option>Sanhok</option>
 
-</div>
+<option>Vikendi</option>
 
-</section>
+</select>
 
-<section id="tournament" class="cards">
+<div id="duoFields" style="display:none;">
+  <label>Player 2 Name</label>
+<input type="text" id="player2Name">
 
-<div class="card">
+<label>Player 2 BGMI UID</label>
+<input type="number" id="player2UID">
 
-<img src="f89ac5e8-5df2-4eb0-aceb-96f183080add.png">
+<label>Player 2 IGN</label>
+<input type="text" id="player2IGN">
 
-<h2>🔥 BGMI LIVIK TOURNAMENT</h2>
-
-<p><b>Entry Fee :</b> ₹50</p>
-
-<p><b>1st Prize :</b> ₹150</p>
-
-<p><b>2nd Prize :</b> ₹100</p>
-
-<p><b>3rd Prize :</b> ₹50</p>
-
-<p><b>Date :</b> 25 June</p>
-
-<p><b>Time :</b> 6:00 PM</p>
-
-<a href="register.html" class="btn">
-
-REGISTER NOW
-
-</a>
-
-</div>
-
-<div class="card">
-
-<img src="f89ac5e8-5df2-4eb0-aceb-96f183080add.png">
-
-<h2>💳 PAYMENT</h2>
-
-<p>
-
-Scan QR Code
-
-After Registration
-
-</p>
-
-  <img src="f89ac5e8-5df2-4eb0-aceb-96f183080add.png" class="qr">
-
-<p>
-
-Payment Verified Within 5 Minutes
-
-</p>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-
-<h2>📞 Contact & Support</h2>
-
-<div class="card">
-
-<h3>Instagram</h3>
-
-<p>
-<a href="https://www.instagram.com/official_hungama_esport" target="_blank">
-Official Hungama Esport
-</a>
-</p>
-
-<p>
-<a href="https://www.instagram.com/hungama_esport" target="_blank">
-Hungama Esport
-</a>
-</p>
-
-<h3>YouTube</h3>
-
-<p>
-<a href="https://youtube.com/@hungama_esport" target="_blank">
-Hungama Esport Channel
-</a>
-</p>
+<label>Player 2 Role</label>
+<select id="player2Role">
+    <option>IGL</option>
+    <option>Rusher</option>
+    <option>Assaulter</option>
+    <option>Spotter</option>
+</select>
 
 </div>
 
-</section>
+<div id="squadFields" style="display:none;">
 
-<footer>
-<p>© 2026 Hungama Esports. All Rights Reserved.</p>
-</footer>
+<h2>Player 3</h2>
+
+<label>Player 3 Name</label>
+<input type="text" id="player3Name">
+
+<label>Player 3 BGMI UID</label>
+<input type="number" id="player3UID">
+
+<label>Player 3 IGN</label>
+<input type="text" id="player3IGN">
+
+<label>Player 3 Role</label>
+<select id="player3Role">
+    <option>IGL</option>
+    <option>Rusher</option>
+    <option>Assaulter</option>
+    <option>Spotter</option>
+</select>
+
+<h2>Player 4</h2>
+
+<label>Player 4 Name</label>
+<input type="text" id="player4Name">
+
+<label>Player 4 BGMI UID</label>
+<input type="number" id="player4UID">
+
+<label>Player 4 IGN</label>
+<input type="text" id="player4IGN">
+
+<label>Player 4 Role</label>
+<select id="player4Role">
+    <option>IGL</option>
+    <option>Rusher</option>
+    <option>Assaulter</option>
+    <option>Spotter</option>
+</select>
+
+</div>
+</div>
+
+<label>Payment Screenshot</label>
+<input type="file" id="payment" accept="image/*" required>
+
+<div class="qr-box">
+    <h3>Scan QR Code</h3>
+    <img src="f89ac5e8-5df2-4eb0-aceb-96f18308.png" alt="QR Code" width="200">
+    <p>Payment Verified Within 5 Minutes</p>
+</div>
+
+<label>
+    <input type="checkbox" id="agree" required>
+    I Agree Tournament Rules
+</label>
+
+<button type="submit">
+    SUBMIT REGISTRATION
+</button>
+
+</form>
 
 <script src="script.js"></script>
 
 </body>
 </html>
-<script src="script.js"></script>
-</body>
-  </html>
