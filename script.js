@@ -1,189 +1,108 @@
-// ================================
-// HUNGAMA ESPORTS - SCRIPT.JS
-// PART 1
-// ================================
+<script>
+  // ===== MOBILE MENU TOGGLE =====
+  function toggleMenu() {
+    const menu = document.getElementById('navMenu');
+    menu.classList.toggle('open');
+  }
 
-// Show / Hide Player Fields
-function showPlayers() {
+  // ===== MODAL / POPUP =====
+  function openModal() {
+    document.getElementById('signinModal').classList.add('active');
+  }
 
-    const type = document.getElementById("tournamentType").value;
+  function closeModal() {
+    document.getElementById('signinModal').classList.remove('active');
+  }
 
-    const duo = document.getElementById("duoFields");
-    const squad = document.getElementById("squadFields");
+  // Click outside modal to close
+  document.getElementById('signinModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
 
-    duo.style.display = "none";
-    squad.style.display = "none";
+  // ===== TOAST NOTIFICATION =====
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    // 3 second baad hide
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
 
-    if (type === "duo") {
-        duo.style.display = "block";
+  // ===== SIGN IN HANDLER =====
+  function handleSignIn() {
+    // IDs sahi se le rahe hain
+    const email = document.getElementById('loginEmail');
+    const password = document.getElementById('loginPassword');
+    
+    // Agar input field exist nahi karte toh error handle karo
+    if (!email || !password) {
+      showToast('⚠️ Form load nahi hua, refresh karo');
+      return;
     }
 
-    if (type === "squad") {
-        duo.style.display = "block";
-        squad.style.display = "block";
-    }
-}
+    const emailValue = email.value.trim();
+    const passValue = password.value.trim();
 
-// Registration Form
-document.addEventListener("DOMContentLoaded", function () {
-
-    const form = document.getElementById("registrationForm");
-
-    if (!form) return;
-
-    form.addEventListener("submit", function (e) {
-
-        e.preventDefault();
-
-        const agree = document.getElementById("agree");
-
-        if (agree && !agree.checked) {
-            alert("Please agree to the tournament rules.");
-            return;
-        }
-
-        alert("🎉 Registration Submitted Successfully!");
-
-        form.reset();
-
-        document.getElementById("duoFields").style.display = "none";
-        document.getElementById("squadFields").style.display = "none";
-
-    });
-
-});
-// ================================
-// HUNGAMA ESPORTS - SCRIPT.JS
-// PART 2
-// Countdown Timer, Smooth Scroll,
-// Live Date & Time, Tournament Status,
-// Better Animations
-// ================================
-
-// -------- Countdown Timer --------
-// HTML me ek element hona chahiye:
-// <span id="countdown"></span>
-
-const tournamentDate = new Date("2026-06-30T18:00:00").getTime();
-
-function updateCountdown() {
-
-    const now = new Date().getTime();
-    const distance = tournamentDate - now;
-
-    const countdown = document.getElementById("countdown");
-
-    if (!countdown) return;
-
-    if (distance <= 0) {
-        countdown.innerHTML = "🔴 Tournament Started!";
-        return;
+    // Validation
+    if (!emailValue || !passValue) {
+      showToast('⚠️ Please enter email and password');
+      return;
     }
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdown.innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
-
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-// -------- Live Date & Time --------
-// HTML:
-// <span id="liveTime"></span>
-
-function updateLiveTime() {
-
-    const liveTime = document.getElementById("liveTime");
-
-    if (!liveTime) return;
-
-    const now = new Date();
-
-    liveTime.innerHTML = now.toLocaleString("en-IN", {
-        dateStyle: "medium",
-        timeStyle: "medium"
-    });
-}
-
-setInterval(updateLiveTime, 1000);
-updateLiveTime();
-
-// -------- Tournament Status --------
-// HTML:
-// <span id="status"></span>
-
-function updateStatus() {
-
-    const status = document.getElementById("status");
-
-    if (!status) return;
-
-    const now = new Date().getTime();
-
-    if (now < tournamentDate) {
-        status.innerHTML = "🟢 Registration Open";
-        status.style.color = "lime";
-    } else {
-        status.innerHTML = "🔴 Tournament Live";
-        status.style.color = "red";
+    if (!emailValue.includes('@') || !emailValue.includes('.')) {
+      showToast('⚠️ Please enter a valid email (example@domain.com)');
+      return;
     }
-}
 
-updateStatus();
-setInterval(updateStatus, 60000);
+    if (passValue.length < 4) {
+      showToast('⚠️ Password must be at least 4 characters');
+      return;
+    }
 
-// -------- Smooth Scrolling --------
+    // Sab sahi hai - login success
+    closeModal();
+    const userName = emailValue.split('@')[0];
+    showToast('✅ Welcome back, ' + userName + '! 🎮');
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+    // Form clear karo
+    email.value = '';
+    password.value = '';
+  }
 
-    link.addEventListener("click", function (e) {
+  // ===== ENTER KEY SUPPORT =====
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      const modal = document.getElementById('signinModal');
+      if (modal.classList.contains('active')) {
+        handleSignIn();
+      }
+    }
+  });
 
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-
+  // ===== MENU CLOSE ON LINK CLICK (Mobile) =====
+  document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', function() {
+      document.getElementById('navMenu').classList.remove('open');
     });
+  });
 
-});
+  // ===== WELCOME TOAST ON LOAD =====
+  window.addEventListener('load', function() {
+    setTimeout(() => {
+      showToast('🎮 Welcome to HungamaEsport! Click anything!');
+    }, 500);
+  });
 
-// -------- Card Hover Animation --------
+  // ===== (OPTIONAL) ESC KEY SE MODAL CLOSE =====
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
 
-document.querySelectorAll(".card").forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-        card.style.transform = "translateY(-10px) scale(1.02)";
-        card.style.transition = "0.3s";
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "translateY(0) scale(1)";
-    });
-
-});
-
-// -------- Button Click Animation --------
-
-document.querySelectorAll("button").forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        button.style.transform = "scale(0.96)";
-
-        setTimeout(() => {
-            button.style.transform = "scale(1)";
-        }, 150);
-
-    });
-
-});
+</script>
