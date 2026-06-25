@@ -497,3 +497,7 @@ adminPanel.style.display = "block";
 } else {
 alert("❌ Wrong Password");
                 }
+
+document.getElementById("adminBtn").addEventListener("click", function () {
+    alert("Admin Panel Open");
+});
