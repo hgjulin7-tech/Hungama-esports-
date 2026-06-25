@@ -48,3 +48,129 @@ If Squad:
 ☑ I agree to the tournament rules.
 
 🔴 SUBMIT REGISTRATION
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Hungama Esports Registration</title>  <style>  
+body{  
+margin:0;  
+padding:0;  
+font-family:Poppins,sans-serif;  
+background:#0d0d0d;  
+color:#fff;  
+}  
+  
+.container{  
+max-width:700px;  
+margin:30px auto;  
+background:#1a1a1a;  
+padding:25px;  
+border-radius:12px;  
+border:2px solid red;  
+}  
+  
+h1{  
+text-align:center;  
+color:red;  
+}  
+  
+input,select{  
+width:100%;  
+padding:12px;  
+margin:10px 0;  
+border:none;  
+border-radius:6px;  
+font-size:16px;  
+}  
+  
+label{  
+font-weight:bold;  
+}  
+  
+button{  
+width:100%;  
+padding:15px;  
+background:red;  
+color:white;  
+font-size:18px;  
+border:none;  
+border-radius:8px;  
+cursor:pointer;  
+margin-top:20px;  
+}  
+  
+button:hover{  
+background:#b30000;  
+}  
+  
+#duoFields,#squadFields{  
+display:none;  
+}  
+</style>  </head>  
+<body>  <div class="container">  <h1>🏆 Hungama Esports Registration</h1>  <label>Player 1 Name</label>
+<input type="text">
+
+<label>Player 1 BGMI UID</label>
+<input type="number">
+
+<label>Player 1 IGN</label>
+<input type="text">
+
+<label>Mobile Number</label>
+<input type="number">
+
+<label>WhatsApp Number</label>
+<input type="number">
+
+<label>Tournament Type</label>
+
+<select id="type" onchange="showFields()">  
+<option value="">Select</option>  
+<option value="solo">Solo</option>  
+<option value="duo">Duo</option>  
+<option value="squad">Squad</option>  
+</select>  <label>Map</label>
+
+<select>  
+<option>Livik</option>  
+<option>Erangel</option>  
+<option>Sanhok</option>  
+<option>Miramar</option>  
+</select>  <div id="duoFields">  <h3>Player 2</h3>  <input type="text" placeholder="Player 2 Name">  
+<input type="number" placeholder="Player 2 UID">  
+<input type="text" placeholder="Player 2 IGN">  </div>  <div id="squadFields">  <h3>Player 2</h3>  <input type="text" placeholder="Player 2 Name">  
+<input type="number" placeholder="Player 2 UID">  
+<input type="text" placeholder="Player 2 IGN">  <h3>Player 3</h3>  <input type="text" placeholder="Player 3 Name">  
+<input type="number" placeholder="Player 3 UID">  
+<input type="text" placeholder="Player 3 IGN">  <h3>Player 4</h3>  <input type="text" placeholder="Player 4 Name">  
+<input type="number" placeholder="Player 4 UID">  
+<input type="text" placeholder="Player 4 IGN">  </div>  <label>Payment Screenshot</label>
+<input type="file">
+
+<label>  
+<input type="checkbox">  
+I Agree Tournament Rules  
+</label>  <button>SUBMIT REGISTRATION</button>
+
+</div>  <script>  
+  
+function showFields(){  
+  
+let type=document.getElementById("type").value;  
+  
+document.getElementById("duoFields").style.display="none";  
+document.getElementById("squadFields").style.display="none";  
+  
+if(type=="duo"){  
+document.getElementById("duoFields").style.display="block";  
+}  
+  
+if(type=="squad"){  
+document.getElementById("squadFields").style.display="block";  
+}  
+  
+}  
+  
+</script>  </body>  
+</html>  Ye kha dalu
