@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hungama Esports</title>
+<title>Hungama Esports | BGMI Tournament</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,14 +15,12 @@
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
 <div class="logo">
-
 🏆 HUNGAMA <span>ESPORTS</span>
-
 </div>
 
 <nav>
@@ -31,49 +29,41 @@
 
 <a href="#tournament">Tournament</a>
 
+<a href="#register">Register</a>
+
 <a href="#leaderboard">Leaderboard</a>
 
 <a href="#contact">Contact</a>
-
-<a href="#register" class="register-btn">Register</a>
 
 </nav>
 
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section id="home" class="hero">
 
 <div class="overlay">
 
 <h1>
-
 PLAY LIKE
-
 <br>
-
 <span>A CHAMPION</span>
-
 </h1>
 
 <p>
-
 India's Premium BGMI Tournament Platform
-
 </p>
 
 <a href="#register" class="btn">
-
-JOIN NOW
-
+REGISTER NOW
 </a>
 
 </div>
 
 </section>
 
-<!-- TOURNAMENT -->
+<!-- ================= TOURNAMENT ================= -->
 
 <section id="tournament" class="cards">
 
@@ -89,33 +79,47 @@ JOIN NOW
 
 <p><b>3rd Prize :</b> ₹50</p>
 
-<p><b>Date :</b> 25 June</p>
+<p><b>Date :</b> 30 June 2026</p>
 
 <p><b>Time :</b> 6:00 PM</p>
 
+<p><b>Status :</b>
+<span id="status">Loading...</span>
+</p>
+
+<p><b>Countdown :</b>
+<span id="countdown">Loading...</span>
+</p>
+
+<p><b>Current Time :</b>
+<span id="liveTime">Loading...</span>
+</p>
+
 <a href="#register" class="btn">
-
-REGISTER NOW
-
+JOIN TOURNAMENT
 </a>
 
 </div>
 
 <div class="card">
 
-<h2>💳 PAYMENT</h2>
+<h2>💳 PAYMENT QR</h2>
 
-<p>Scan QR Code</p>
+<p>Scan QR Code & Pay Entry Fee</p>
 
-<img src="f89ac5e8-5df2-4eb0-aceb-96f183080add.png" class="qr">
+<img src="f89ac5e8-5df2-4eb0-aceb-96f183080add.png"
+class="qr"
+alt="QR Code">
 
-<p>Pay Entry Fee Before Registration</p>
+<p>
+After payment upload screenshot in registration form.
+</p>
 
 </div>
 
 </section>
 
-<!-- REGISTRATION -->
+<!-- ================= REGISTRATION ================= -->
 
 <section id="register">
 
@@ -125,49 +129,84 @@ REGISTER NOW
 
 <form id="registrationForm">
 
-<label>Team Name</label>
+<label for="teamName">Team Name</label>
 
-<input type="text" required>
+<input
+type="text"
+id="teamName"
+name="teamName"
+placeholder="Enter Team Name"
+required>
 
-<label>Player 1 Name</label>
+<label for="player1Name">Player 1 Name</label>
 
-<input type="text" required>
+<input
+type="text"
+id="player1Name"
+name="player1Name"
+placeholder="Player 1 Name"
+required>
 
-<label>Player 1 BGMI UID</label>
+<label for="player1UID">Player 1 BGMI UID</label>
 
-<input type="number" required>
+<input
+type="number"
+id="player1UID"
+name="player1UID"
+placeholder="BGMI UID"
+required>
 
-<label>Player 1 IGN</label>
+<label for="player1IGN">Player 1 IGN</label>
 
-<input type="text" required>
+<input
+type="text"
+id="player1IGN"
+name="player1IGN"
+placeholder="In Game Name"
+required>
 
-<label>Player 1 Role</label>
+<label for="player1Role">Player 1 Role</label>
 
-<select>
+<select
+id="player1Role"
+name="player1Role">
 
-<option>IGL</option>
+<option value="IGL">IGL</option>
 
-<option>Rusher</option>
+<option value="Rusher">Rusher</option>
 
-<option>Assaulter</option>
+<option value="Assaulter">Assaulter</option>
 
-<option>Spotter</option>
+<option value="Spotter">Spotter</option>
 
 </select>
 
-<label>Mobile Number</label>
+<label for="mobile">Mobile Number</label>
 
-<input type="number" required>
+<input
+type="tel"
+id="mobile"
+name="mobile"
+placeholder="Mobile Number"
+required>
 
-<label>WhatsApp Number</label>
+<label for="whatsapp">WhatsApp Number</label>
 
-<input type="number" required>
+<input
+type="tel"
+id="whatsapp"
+name="whatsapp"
+placeholder="WhatsApp Number"
+required>
 
-<label>Tournament Type</label>
+<label for="tournamentType">Tournament Type</label>
 
-<select id="tournamentType" onchange="showPlayers()">
+<select
+id="tournamentType"
+name="tournamentType"
+onchange="showPlayers()">
 
-<option value="">Select</option>
+<option value="">Select Tournament Type</option>
 
 <option value="solo">Solo</option>
 
@@ -177,136 +216,185 @@ REGISTER NOW
 
 </select>
 
-<label>Map</label>
+<label for="map">Map</label>
 
-<select>
+<select id="map" name="map">
 
 <option>Livik</option>
 
 <option>Erangel</option>
 
-<option>Sanhok</option>
-
 <option>Miramar</option>
+
+<option>Sanhok</option>
 
 </select>
 
 <div id="duoFields" style="display:none;">
-    <label>Player 2 Name</label>
+    <!-- ================= PLAYER 2 ================= -->
 
-<input type="text">
+<label for="player2Name">Player 2 Name</label>
 
-<label>Player 2 BGMI UID</label>
+<input
+type="text"
+id="player2Name"
+name="player2Name"
+placeholder="Player 2 Name">
 
-<input type="number">
+<label for="player2UID">Player 2 BGMI UID</label>
 
-<label>Player 2 IGN</label>
+<input
+type="number"
+id="player2UID"
+name="player2UID"
+placeholder="BGMI UID">
 
-<input type="text">
+<label for="player2IGN">Player 2 IGN</label>
 
-<label>Player 2 Role</label>
+<input
+type="text"
+id="player2IGN"
+name="player2IGN"
+placeholder="In Game Name">
 
-<select>
+<label for="player2Role">Player 2 Role</label>
 
-<option>IGL</option>
+<select
+id="player2Role"
+name="player2Role">
 
-<option>Rusher</option>
-
-<option>Assaulter</option>
-
-<option>Spotter</option>
+<option value="IGL">IGL</option>
+<option value="Rusher">Rusher</option>
+<option value="Assaulter">Assaulter</option>
+<option value="Spotter">Spotter</option>
 
 </select>
 
 </div>
+
+<!-- ================= PLAYER 3 & PLAYER 4 ================= -->
 
 <div id="squadFields" style="display:none;">
 
 <h2>Player 3</h2>
 
-<label>Player 3 Name</label>
+<label for="player3Name">Player 3 Name</label>
 
-<input type="text">
+<input
+type="text"
+id="player3Name"
+name="player3Name"
+placeholder="Player 3 Name">
 
-<label>Player 3 BGMI UID</label>
+<label for="player3UID">Player 3 BGMI UID</label>
 
-<input type="number">
+<input
+type="number"
+id="player3UID"
+name="player3UID"
+placeholder="BGMI UID">
 
-<label>Player 3 IGN</label>
+<label for="player3IGN">Player 3 IGN</label>
 
-<input type="text">
+<input
+type="text"
+id="player3IGN"
+name="player3IGN"
+placeholder="In Game Name">
 
-<label>Player 3 Role</label>
+<label for="player3Role">Player 3 Role</label>
 
-<select>
+<select
+id="player3Role"
+name="player3Role">
 
-<option>IGL</option>
-
-<option>Rusher</option>
-
-<option>Assaulter</option>
-
-<option>Spotter</option>
+<option value="IGL">IGL</option>
+<option value="Rusher">Rusher</option>
+<option value="Assaulter">Assaulter</option>
+<option value="Spotter">Spotter</option>
 
 </select>
 
 <h2>Player 4</h2>
 
-<label>Player 4 Name</label>
+<label for="player4Name">Player 4 Name</label>
 
-<input type="text">
+<input
+type="text"
+id="player4Name"
+name="player4Name"
+placeholder="Player 4 Name">
 
-<label>Player 4 BGMI UID</label>
+<label for="player4UID">Player 4 BGMI UID</label>
 
-<input type="number">
+<input
+type="number"
+id="player4UID"
+name="player4UID"
+placeholder="BGMI UID">
 
-<label>Player 4 IGN</label>
+<label for="player4IGN">Player 4 IGN</label>
 
-<input type="text">
+<input
+type="text"
+id="player4IGN"
+name="player4IGN"
+placeholder="In Game Name">
 
-<label>Player 4 Role</label>
+<label for="player4Role">Player 4 Role</label>
 
-<select>
+<select
+id="player4Role"
+name="player4Role">
 
-<option>IGL</option>
-
-<option>Rusher</option>
-
-<option>Assaulter</option>
-
-<option>Spotter</option>
+<option value="IGL">IGL</option>
+<option value="Rusher">Rusher</option>
+<option value="Assaulter">Assaulter</option>
+<option value="Spotter">Spotter</option>
 
 </select>
 
-<label>Payment Screenshot</label>
+<label for="payment">Payment Screenshot</label>
 
-<input type="file" accept="image/*">
+<input
+type="file"
+id="payment"
+name="payment"
+accept="image/*">
 
 <label>
 
-<input type="checkbox" id="agree">
+<input
+type="checkbox"
+id="agree"
+required>
 
-I Agree Tournament Rules
+I agree to all Tournament Rules.
 
 </label>
 
 <button type="submit">
-
 SUBMIT REGISTRATION
-
 </button>
+
+</div>
 
 </form>
 
 </div>
 
-</section>
+    </section>
+    <!-- ================= LEADERBOARD ================= -->
 
 <section id="leaderboard">
+
+<div class="container">
 
 <h1>🏆 Leaderboard</h1>
 
 <table>
+
+<thead>
 
 <tr>
 
@@ -317,6 +405,10 @@ SUBMIT REGISTRATION
 <th>Kills</th>
 
 </tr>
+
+</thead>
+
+<tbody>
 
 <tr>
 
@@ -348,56 +440,88 @@ SUBMIT REGISTRATION
 
 </tr>
 
+</tbody>
+
 </table>
-
-    </section>
-    <!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<h2>📞 Contact & Support</h2>
-
-<div class="contact-box">
-
-<h3>Instagram</h3>
-
-<p>
-<a href="https://www.instagram.com/official_hungama_esport" target="_blank">
-Official Hungama Esport
-</a>
-</p>
-
-<p>
-<a href="https://www.instagram.com/hungama_esport" target="_blank">
-Hungama Esport
-</a>
-</p>
-
-<h3>YouTube</h3>
-
-<p>
-<a href="https://youtube.com/@hungama_esport" target="_blank">
-Hungama Esport Channel
-</a>
-</p>
-
-<h3>Tournament QR Payment</h3>
-
-<img src="f89ac5e8-5df2-4eb0-aceb-96f183080add.png" class="qr" alt="QR Code">
-
-<p>Scan QR Code & Pay Tournament Entry Fee</p>
 
 </div>
 
 </section>
 
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<h1>📞 Contact & Support</h1>
+
+<h3>Instagram</h3>
+
+<p>
+
+<a href="https://www.instagram.com/official_hungama_esport" target="_blank">
+
+Official Hungama Esport
+
+</a>
+
+</p>
+
+<p>
+
+<a href="https://www.instagram.com/hungama_esport" target="_blank">
+
+Hungama Esport
+
+</a>
+
+</p>
+
+<h3>YouTube</h3>
+
+<p>
+
+<a href="https://youtube.com/@hungama_esport" target="_blank">
+
+Hungama Esport Channel
+
+</a>
+
+</p>
+
+<h3>WhatsApp Support</h3>
+
+<p>
+
+<a href="https://wa.me/91XXXXXXXXXX" target="_blank">
+
+Chat on WhatsApp
+
+</a>
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
 
-<p>© 2026 Hungama Esports. All Rights Reserved.</p>
+<p>
+
+© 2026 Hungama Esports. All Rights Reserved.
+
+</p>
 
 </footer>
+
+<!-- ================= SCRIPT ================= -->
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
