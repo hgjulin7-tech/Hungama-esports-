@@ -1,396 +1,317 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hungama Esports</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <!-- Font Awesome -->
+  <title>HungamaEsport - Gaming Tournaments</title>
+  
+  <!-- ===== FONTS & ICONS ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #0a0c10;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-    }
-
-    /* ===== HEADER ===== */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: rgba(10, 12, 16, 0.95);
-      border-bottom: 1px solid #1f2a3a;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-    .logo span {
-      color: #f5a623;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 35px;
-    }
-    nav ul li a {
-      color: #b0b8c5;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      transition: 0.3s;
-    }
-    nav ul li a:hover {
-      color: #f5a623;
-    }
-    .nav-btn {
-      background: #f5a623;
-      color: #0a0c10 !important;
-      padding: 8px 22px;
-      border-radius: 30px;
-      font-weight: 700 !important;
-    }
-    .nav-btn:hover {
-      background: #ffb83d;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 80px 60px 60px;
-      background: radial-gradient(circle at 10% 30%, #141a26, #0a0c10 70%);
-      min-height: 80vh;
-    }
-    .hero-content {
-      max-width: 50%;
-    }
-    .hero-content h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 52px;
-      font-weight: 900;
-      line-height: 1.2;
-    }
-    .hero-content h1 span {
-      color: #f5a623;
-    }
-    .hero-content p {
-      font-size: 18px;
-      color: #9aa4b3;
-      margin: 25px 0 35px;
-      max-width: 500px;
-    }
-    .btn-primary {
-      background: #f5a623;
-      color: #0a0c10;
-      padding: 14px 40px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      display: inline-block;
-      transition: 0.3s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      background: #ffb83d;
-      transform: scale(1.03);
-    }
-
-    .hero-image {
-      background: #1f2a3a;
-      width: 400px;
-      height: 300px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 24px;
-      color: #f5a623;
-      border: 1px solid #2d3b4f;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    }
-    .hero-image i {
-      font-size: 80px;
-      margin-right: 15px;
-    }
-
-    /* ===== SECTION ===== */
-    section {
-      padding: 70px 60px;
-    }
-    .section-title {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 32px;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-    .section-title span {
-      color: #f5a623;
-    }
-    .section-sub {
-      text-align: center;
-      color: #9aa4b3;
-      margin-bottom: 50px;
-      font-size: 17px;
-    }
-
-    /* ===== CARDS ===== */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .card {
-      background: #141a26;
-      padding: 35px 25px;
-      border-radius: 16px;
-      border: 1px solid #1f2a3a;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .card:hover {
-      border-color: #f5a623;
-      transform: translateY(-8px);
-    }
-    .card i {
-      font-size: 40px;
-      color: #f5a623;
-      margin-bottom: 20px;
-    }
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .card p {
-      color: #9aa4b3;
-      font-size: 14px;
-    }
-
-    /* ===== RISING STAR (Original jaisa) ===== */
-    .rising-star {
-      background: #0f131c;
-      border-top: 1px solid #1f2a3a;
-      border-bottom: 1px solid #1f2a3a;
-    }
-    .rising-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1100px;
-      margin: 0 auto;
-      gap: 40px;
-    }
-    .rising-text h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 36px;
-    }
-    .rising-text h2 span {
-      color: #f5a623;
-    }
-    .rising-text p {
-      color: #9aa4b3;
-      font-size: 17px;
-      margin: 20px 0 30px;
-      max-width: 500px;
-    }
-    .rising-badge {
-      background: #1f2a3a;
-      padding: 30px 40px;
-      border-radius: 20px;
-      border-left: 4px solid #f5a623;
-      min-width: 250px;
-    }
-    .rising-badge .big {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 42px;
-      font-weight: 900;
-      color: #f5a623;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #06080b;
-      padding: 40px 60px 25px;
-      border-top: 1px solid #1f2a3a;
-    }
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 30px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .footer-col h4 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-    .footer-col p, .footer-col a {
-      color: #7a8494;
-      text-decoration: none;
-      display: block;
-      margin: 6px 0;
-      font-size: 14px;
-    }
-    .footer-col a:hover {
-      color: #f5a623;
-    }
-    .footer-bottom {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #1a2332;
-      color: #5a6474;
-      font-size: 14px;
-    }
-    .footer-bottom span {
-      color: #f5a623;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      header { padding: 15px 30px; flex-wrap: wrap; gap: 15px; }
-      nav ul { gap: 18px; flex-wrap: wrap; }
-      .hero { flex-direction: column; text-align: center; padding: 50px 30px; }
-      .hero-content { max-width: 100%; }
-      .hero-content p { margin-left: auto; margin-right: auto; }
-      .hero-image { width: 100%; max-width: 350px; height: 200px; margin-top: 30px; }
-      section { padding: 50px 25px; }
-      .rising-content { flex-direction: column; text-align: center; }
-      .rising-text p { margin-left: auto; margin-right: auto; }
-    }
-    @media (max-width: 480px) {
-      .hero-content h1 { font-size: 32px; }
-      .logo { font-size: 22px; }
-      .footer-grid { flex-direction: column; text-align: center; }
-    }
-  </style>
+  
+  <!-- ===== CSS (Link to external file) ===== -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ============================================================ -->
+<!-- ===== HEADER / NAVIGATION ===== -->
+<!-- ============================================================ -->
 <header>
-  <div class="logo">Hungama<span>Esport</span></div>
+  <div class="logo" onclick="showToast('🏠 Welcome to HungamaEsport!')">
+    <i class="fas fa-skull"></i> Hungama<span>Esport</span>
+  </div>
+  
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  
   <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#">News</a></li>
-      <li><a href="#" class="nav-btn">Sign In</a></li>
+    <ul id="navMenu">
+      <li><a onclick="showToast('📄 Home page loaded')"><i class="fas fa-home"></i> Home</a></li>
+      <li><a onclick="showToast('🏆 Check out our tournaments!')"><i class="fas fa-trophy"></i> Tournaments</a></li>
+      <li><a onclick="showToast('👥 Meet our teams')"><i class="fas fa-users"></i> Teams</a></li>
+      <li><a onclick="showToast('📰 Latest gaming news')"><i class="fas fa-newspaper"></i> News</a></li>
+      <li><a class="nav-btn" onclick="openModal()"><i class="fas fa-user"></i> Sign In</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- HERO -->
+<!-- ============================================================ -->
+<!-- ===== HERO SECTION ===== -->
+<!-- ============================================================ -->
 <section class="hero">
   <div class="hero-content">
-    <h1>India's <span>New Esports</span> Hub</h1>
-    <p>HungamaEsport presents a platform to elevate emerging athletes and creators — helping them reach new heights in their careers.</p>
-    <a href="#" class="btn-primary"><i class="fas fa-rocket" style="margin-right:10px;"></i> Get Started</a>
+    <div class="hero-badge">🔥 LIVE TOURNAMENT</div>
+    <h1>Welcome to <span>Hungama<span class="blood">Esport</span></span></h1>
+    <p>India ki nayi gaming destination. <span class="highlight">Blood, Sweat & Victory</span> — yahan har match ek naya epic battle hai.</p>
+    
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number" id="livePlayers">1,847</span>
+        <span class="stat-label">Live Players</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">₹50K+</span>
+        <span class="stat-label">Prize Pool</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">24</span>
+        <span class="stat-label">Active Tournaments</span>
+      </div>
+    </div>
+    
+    <div class="hero-buttons">
+      <button class="btn-primary" onclick="openModal()">
+        <i class="fas fa-rocket"></i> Join Tournament
+      </button>
+      <button class="btn-secondary" onclick="showToast('📺 Watch live streams coming soon!')">
+        <i class="fas fa-play"></i> Watch Live
+      </button>
+    </div>
   </div>
+  
   <div class="hero-image">
-    <i class="fas fa-gamepad"></i> Hungama
-  </div>
-</section>
-
-<!-- FEATURES / GAMES -->
-<section>
-  <h2 class="section-title">Our <span>Games</span></h2>
-  <p class="section-sub">Compete in India's most popular esports titles</p>
-  <div class="card-grid">
-    <div class="card">
-      <i class="fas fa-crosshairs"></i>
-      <h3>BGMI</h3>
-      <p>Battle Royale tournaments with massive prize pools.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-fire"></i>
-      <h3>Free Fire</h3>
-      <p>Fast-paced action and daily cash giveaways.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-skull"></i>
-      <h3>Valorant</h3>
-      <p>5v5 competitive matches for pro-level players.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-futbol"></i>
-      <h3>eFootball</h3>
-      <p>Realistic football esports experience.</p>
+    <div class="hero-image-content">
+      <i class="fas fa-gamepad"></i>
+      <span>#Hungama</span>
+      <div class="pulse-ring"></div>
     </div>
   </div>
 </section>
 
-<!-- RISING STAR SECTION (Original jaisa) -->
+<!-- ============================================================ -->
+<!-- ===== TOURNAMENTS SECTION ===== -->
+<!-- ============================================================ -->
+<section class="tournaments">
+  <div class="section-header">
+    <span class="section-badge">🎯 HOT EVENTS</span>
+    <h2 class="section-title">Live <span>Tournaments</span></h2>
+    <p class="section-sub">Join these battles and claim your victory</p>
+  </div>
+  
+  <div class="tournament-grid">
+    <!-- Tournament 1 -->
+    <div class="tournament-card" onclick="showToast('🏆 BGMI Mega Cup - Register now!')">
+      <div class="tournament-banner">
+        <span class="tournament-tag">🔥 LIVE</span>
+        <i class="fas fa-crosshairs"></i>
+      </div>
+      <div class="tournament-info">
+        <h3>BGMI Mega Cup</h3>
+        <p><i class="fas fa-map-pin"></i> India</p>
+        <div class="tournament-meta">
+          <span><i class="fas fa-users"></i> 32/64 Teams</span>
+          <span><i class="fas fa-coins"></i> ₹25,000</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:50%"></div>
+        </div>
+        <button class="btn-join">Join Now</button>
+      </div>
+    </div>
+    
+    <!-- Tournament 2 -->
+    <div class="tournament-card" onclick="showToast('🔥 Free Fire Championship - Limited slots!')">
+      <div class="tournament-banner">
+        <span class="tournament-tag">⚡ POPULAR</span>
+        <i class="fas fa-fire"></i>
+      </div>
+      <div class="tournament-info">
+        <h3>Free Fire Championship</h3>
+        <p><i class="fas fa-map-pin"></i> Mumbai</p>
+        <div class="tournament-meta">
+          <span><i class="fas fa-users"></i> 48/64 Teams</span>
+          <span><i class="fas fa-coins"></i> ₹15,000</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:75%"></div>
+        </div>
+        <button class="btn-join">Join Now</button>
+      </div>
+    </div>
+    
+    <!-- Tournament 3 -->
+    <div class="tournament-card" onclick="showToast('💀 Valorant Pro Series - 5v5 action!')">
+      <div class="tournament-banner">
+        <span class="tournament-tag">🎮 PRO</span>
+        <i class="fas fa-skull"></i>
+      </div>
+      <div class="tournament-info">
+        <h3>Valorant Pro Series</h3>
+        <p><i class="fas fa-map-pin"></i> Delhi</p>
+        <div class="tournament-meta">
+          <span><i class="fas fa-users"></i> 8/16 Teams</span>
+          <span><i class="fas fa-coins"></i> ₹40,000</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width:30%"></div>
+        </div>
+        <button class="btn-join">Join Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ===== RISING STAR SECTION ===== -->
+<!-- ============================================================ -->
 <section class="rising-star">
   <div class="rising-content">
     <div class="rising-text">
+      <span class="section-badge">⭐ SPECIAL PROGRAM</span>
       <h2>Rising <span>Star</span></h2>
       <p>A program designed to elevate emerging esports athletes and content creators, helping them reach new heights in their careers.</p>
-      <a href="#" class="btn-primary" style="background:#fff; color:#0a0c10;">Learn More</a>
+      <ul class="rising-features">
+        <li><i class="fas fa-check-circle"></i> Mentorship from pro players</li>
+        <li><i class="fas fa-check-circle"></i> ₹1 Lakh+ prize pool</li>
+        <li><i class="fas fa-check-circle"></i> Sponsorship opportunities</li>
+      </ul>
+      <button class="btn-primary" onclick="showToast('🌟 Apply for Rising Star program!')">
+        <i class="fas fa-star"></i> Apply Now
+      </button>
     </div>
-    <div class="rising-badge">
+    <div class="rising-badge" onclick="showToast('🏆 #RISE - Be the next star!')">
       <div class="big">#RISE</div>
-      <p style="color:#b0b8c5; margin-top:8px;">Apply Now</p>
+      <p>Next Season <span class="blood">2026</span></p>
+      <div class="badge-pulse"></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================================================ -->
+<!-- ===== LEADERBOARD SECTION ===== -->
+<!-- ============================================================ -->
+<section class="leaderboard">
+  <div class="section-header">
+    <span class="section-badge">🏅 RANKINGS</span>
+    <h2 class="section-title">Top <span>Players</span></h2>
+    <p class="section-sub">India's best esports athletes</p>
+  </div>
+  
+  <div class="leaderboard-table">
+    <div class="leaderboard-item gold" onclick="showToast('🥇 #1 - Shadow - 2,450 points!')">
+      <span class="rank">#1</span>
+      <span class="player-name"><i class="fas fa-crown"></i> Shadow</span>
+      <span class="player-score">2,450 pts</span>
+      <span class="player-game">BGMI</span>
+    </div>
+    <div class="leaderboard-item silver" onclick="showToast('🥈 #2 - Viper - 2,320 points!')">
+      <span class="rank">#2</span>
+      <span class="player-name">Viper</span>
+      <span class="player-score">2,320 pts</span>
+      <span class="player-game">Free Fire</span>
+    </div>
+    <div class="leaderboard-item bronze" onclick="showToast('🥉 #3 - Phoenix - 2,180 points!')">
+      <span class="rank">#3</span>
+      <span class="player-name">Phoenix</span>
+      <span class="player-score">2,180 pts</span>
+      <span class="player-game">Valorant</span>
+    </div>
+    <div class="leaderboard-item" onclick="showToast('#4 - Blaze - 2,050 points!')">
+      <span class="rank">#4</span>
+      <span class="player-name">Blaze</span>
+      <span class="player-score">2,050 pts</span>
+      <span class="player-game">BGMI</span>
+    </div>
+    <div class="leaderboard-item" onclick="showToast('#5 - Storm - 1,980 points!')">
+      <span class="rank">#5</span>
+      <span class="player-name">Storm</span>
+      <span class="player-score">1,980 pts</span>
+      <span class="player-game">eFootball</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ===== FOOTER ===== -->
+<!-- ============================================================ -->
 <footer>
   <div class="footer-grid">
     <div class="footer-col">
-      <h4 style="color:#f5a623;">HungamaEsport</h4>
-      <p>India ka naya esports destination.</p>
+      <h4><i class="fas fa-skull"></i> HungamaEsport</h4>
+      <p>India ka naya esports destination. <span class="blood">Blood, Sweat & Victory.</span></p>
+      <div class="social-icons">
+        <a onclick="showToast('▶️ Subscribe to our YouTube!')"><i class="fab fa-youtube"></i></a>
+        <a onclick="showToast('📸 Follow us on Instagram!')"><i class="fab fa-instagram"></i></a>
+        <a onclick="showToast('🐦 Follow us on Twitter!')"><i class="fab fa-twitter"></i></a>
+        <a onclick="showToast('🎮 Join our Discord!')"><i class="fab fa-discord"></i></a>
+      </div>
     </div>
+    
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <a href="#">Tournaments</a>
-      <a href="#">Teams</a>
-      <a href="#">Careers</a>
+      <a onclick="showToast('🏆 Tournaments page loading...')"><i class="fas fa-chevron-right"></i> Tournaments</a>
+      <a onclick="showToast('👥 Teams page coming soon')"><i class="fas fa-chevron-right"></i> Teams</a>
+      <a onclick="showToast('💼 Careers - Join our team!')"><i class="fas fa-chevron-right"></i> Careers</a>
+      <a onclick="showToast('📅 Event calendar')"><i class="fas fa-chevron-right"></i> Events</a>
     </div>
+    
     <div class="footer-col">
       <h4>Support</h4>
-      <a href="#">Help Center</a>
-      <a href="#">Contact Us</a>
-      <a href="#">Privacy Policy</a>
+      <a onclick="showToast('❓ Help Center - How can we help?')"><i class="fas fa-chevron-right"></i> Help Center</a>
+      <a onclick="showToast('📧 support@hungamaesport.com')"><i class="fas fa-chevron-right"></i> Contact Us</a>
+      <a onclick="showToast('🔒 Privacy Policy')"><i class="fas fa-chevron-right"></i> Privacy Policy</a>
+      <a onclick="showToast('📝 Terms & Conditions')"><i class="fas fa-chevron-right"></i> T&C</a>
     </div>
-    <div class="footer-col">
-      <h4>Follow</h4>
-      <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+    
+    <div class="footer-col newsletter">
+      <h4>Newsletter</h4>
+      <p>Get tournament updates first!</p>
+      <div class="newsletter-box">
+        <input type="email" id="newsletterEmail" placeholder="Your email" />
+        <button onclick="handleNewsletter()"><i class="fas fa-paper-plane"></i></button>
+      </div>
     </div>
   </div>
+  
   <div class="footer-bottom">
-    &copy; 2026 <span>HungamaEsport</span>. All rights reserved.
+    <p>&copy; 2026 <span class="blood">HungamaEsport</span>. All rights reserved. Made with <i class="fas fa-heart blood"></i> for gamers.</p>
   </div>
 </footer>
 
+<!-- ============================================================ -->
+<!-- ===== SIGN IN MODAL ===== -->
+<!-- ============================================================ -->
+<div class="modal" id="signinModal">
+  <div class="modal-box">
+    <span class="close" onclick="closeModal()">×</span>
+    <div class="modal-icon"><i class="fas fa-skull"></i></div>
+    <h2>Welcome <span>Back</span></h2>
+    <p class="modal-sub">Sign in to your HungamaEsport account</p>
+    
+    <form onsubmit="event.preventDefault(); handleSignIn();">
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="loginEmail" placeholder="Email address" required />
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="loginPassword" placeholder="Password" required />
+      </div>
+      <div class="modal-options">
+        <label><input type="checkbox" /> Remember me</label>
+        <a onclick="showToast('🔑 Password reset link sent to your email')">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn-primary"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+    </form>
+    
+    <p class="modal-footer-text">Don't have an account? <a onclick="closeModal(); showToast('📝 Registration form opening...')">Sign up</a></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ===== TOAST NOTIFICATION ===== -->
+<!-- ============================================================ -->
+<div class="toast" id="toast">
+  <i class="fas fa-bell"></i>
+  <span id="toastMessage">Welcome!</span>
+</div>
+
+<!-- ============================================================ -->
+<!-- ===== JAVASCRIPT (Link to external file) ===== -->
+<!-- ============================================================ -->
+<script src="script.js"></script>
+
 </body>
-</html>
+    </html>
