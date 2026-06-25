@@ -1,121 +1,144 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+body {
+    background: #0b0b0b;
+    color: #fff;
+}
+
+/* MAIN CONTAINER */
+.container {
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #111;
+    border: 2px solid red;
+    border-radius: 15px;
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+p {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* LABEL */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+/* INPUT FIELDS */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: #f1f1f1;
+    font-size: 15px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    background: red;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: darkred;
+}
+
+/* IMAGE */
+img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+/* CHECKBOX */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+    }
 body{
-    background:#0d0d0d;
-    color:#fff;
-    padding:20px;
+    background-color:#0d0d0d;
+    color:white;
+    font-family: Arial, sans-serif;
 }
 
 .container{
-    max-width:700px;
+    max-width:500px;
     margin:auto;
-    background:#1a1a1a;
+    background:#111;
     padding:20px;
-    border:2px solid red;
     border-radius:15px;
-    box-shadow:0 0 20px rgba(255,0,0,.4);
+    border:2px solid red;
 }
 
-h1{
-    text-align:center;
-    color:#ff0000;
-    margin-bottom:10px;
-}
-
-p{
-    text-align:center;
-    color:#ccc;
-    margin-bottom:20px;
-}
-
-label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:6px;
-    font-size:18px;
-    font-weight:bold;
-}
-
-input,
-select,
-textarea{
+input, select{
     width:100%;
-    padding:14px;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:8px;
     border:none;
-    border-radius:10px;
-    background:#f1f1f1;
-    font-size:16px;
     outline:none;
 }
 
-input:focus,
-select:focus,
-textarea:focus{
-    border:2px solid red;
-}
-
-#duoFields,
-#squadFields{
-    display:none;
-}
-
 button{
     width:100%;
-    margin-top:20px;
-    padding:16px;
-    background:#d40000;
-    color:#fff;
+    padding:12px;
+    background:red;
+    color:white;
     border:none;
     border-radius:10px;
-    font-size:20px;
-    font-weight:bold;
     cursor:pointer;
-    transition:.3s;
 }
 
 button:hover{
-    background:#ff1a1a;
-}
-
-.checkbox{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:20px;
-}
-
-.checkbox input{
-    width:20px;
-    height:20px;
-}
-
-img{
-    width:100%;
-    border-radius:12px;
-    margin-bottom:20px;
-}
-
-@media(max-width:600px){
-
-.container{
-    padding:15px;
-}
-
-h1{
-    font-size:28px;
-}
-
-label{
-    font-size:16px;
-}
-
-button{
-    font-size:18px;
-}
-
+    background:darkred;
 }
