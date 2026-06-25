@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>HUNGAMA ESPORTS · Tournament Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hungama Esports</title>
 
-    <!-- QRCode.js for generating QR (no UPI) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
-    </script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
         /* ===== RESET & BASE ===== */
@@ -17,655 +16,674 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #0a0000;
-            color: #e6d6d6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0b0e14;
+            color: #fff;
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* ===== BLOOD RED / BLACK THEME ===== */
-        :root {
-            --blood: #8a0303;
-            --blood-dark: #5a0101;
-            --blood-glow: #b31b1b;
-            --black: #0a0000;
-            --black-soft: #140404;
-            --red-dark: #3d0000;
-            --red-light: #cc3333;
-            --gold-accent: #c99a3b;
-            --text-light: #f0e0e0;
-            --text-muted: #b08888;
-            --border-blood: #6b0202;
-        }
-
-        /* ===== BACKGROUND LAYER ===== */
-        .bg-layer {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(130, 0, 0, 0.35) 0%, transparent 55%),
-                radial-gradient(ellipse at 80% 80%, rgba(180, 0, 0, 0.20) 0%, transparent 55%),
-                radial-gradient(ellipse at 50% 50%, rgba(10, 0, 0, 0.98) 0%, #0a0000 100%);
-            background-attachment: fixed;
-        }
-
-        .bg-layer::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(circle at 30% 40%, rgba(139, 0, 0, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 70% 60%, rgba(200, 30, 30, 0.05) 0%, transparent 45%);
-            pointer-events: none;
-        }
-
-        .bg-layer::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                radial-gradient(circle at 10% 15%, rgba(120, 0, 0, 0.06) 0%, transparent 20%),
-                radial-gradient(circle at 85% 70%, rgba(160, 0, 0, 0.04) 0%, transparent 25%),
-                radial-gradient(circle at 45% 90%, rgba(100, 0, 0, 0.05) 0%, transparent 18%);
-            pointer-events: none;
-        }
-
-        /* ===== WRAPPER ===== */
-        .app-wrapper {
-            position: relative;
-            z-index: 1;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 1.5rem 1.2rem 4rem;
-        }
-
-        /* ===== HEADER ===== */
-        .header {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding: 1.2rem 1.5rem;
-            margin-bottom: 2.5rem;
-            background: rgba(10, 0, 0, 0.75);
-            border-left: 4px solid var(--blood);
-            border-bottom: 2px solid var(--blood-dark);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(180, 0, 0, 0.15);
-            backdrop-filter: blur(4px);
-            border-radius: 0 12px 12px 0;
+            justify-content: center;
+            padding: 2rem 1rem;
         }
 
-        .logo-area h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 4px;
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: linear-gradient(145deg, #121820, #1a232e);
+            border-radius: 2.5rem;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+        }
+
+        /* ===== HEADING ===== */
+        .main-heading {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .main-heading h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            background: linear-gradient(135deg, #f0d0d0 0%, #cc4444 60%, #8a0303 100%);
+            background: linear-gradient(135deg, #f5c842, #ff8c00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 30px rgba(180, 0, 0, 0.3);
-        }
-
-        .logo-area .tagline {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            border-left: 2px solid var(--blood);
-            padding-left: 12px;
-            margin-top: 4px;
-        }
-
-        .header-poster {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .poster-upload-btn {
-            background: var(--blood-dark);
-            border: 1px solid var(--blood);
-            color: #f0d0d0;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: 0.5px;
-        }
-
-        .poster-upload-btn:hover {
-            background: var(--blood);
-            border-color: var(--red-light);
-            box-shadow: 0 0 20px rgba(180, 0, 0, 0.3);
-            transform: scale(1.02);
-        }
-
-        #posterPreview {
-            max-height: 60px;
-            border-radius: 6px;
-            border: 1px solid var(--border-blood);
-            display: none;
-            object-fit: cover;
-        }
-
-        /* ===== QR SECTION (no UPI) ===== */
-        .qr-section {
-            background: rgba(10, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            border: 1px solid var(--border-blood);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), inset 0 0 60px rgba(80, 0, 0, 0.1);
-        }
-
-        .qr-left {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .qr-box {
-            background: #0d0000;
-            padding: 12px;
-            border-radius: 12px;
-            border: 2px solid var(--blood);
-            box-shadow: 0 0 30px rgba(130, 0, 0, 0.25);
+            text-shadow: 0 0 30px rgba(255, 200, 0, 0.25);
             display: inline-block;
-            line-height: 0;
-        }
-
-        #qrcode {
-            width: 110px;
-            height: 110px;
-            display: block;
-        }
-
-        #qrcode img,
-        #qrcode canvas {
-            width: 100% !important;
-            height: 100% !important;
-            border-radius: 4px;
-        }
-
-        .qr-info h3 {
-            font-size: 1.1rem;
-            color: #f0d0d0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .qr-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 4px;
-        }
-
-        .qr-info .fee {
-            display: inline-block;
-            margin-top: 8px;
-            background: var(--blood-dark);
-            padding: 4px 18px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #f0d0d0;
-            border: 1px solid var(--blood);
-        }
-
-        .qr-right {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-align: right;
-            border-left: 2px solid var(--blood-dark);
-            padding-left: 1.5rem;
-        }
-
-        .qr-right strong {
-            color: #e6b0b0;
-            display: block;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 720px) {
-            .qr-section {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            .qr-left {
-                justify-content: center;
-            }
-            .qr-right {
-                text-align: center;
-                border-left: none;
-                border-top: 2px solid var(--blood-dark);
-                padding-left: 0;
-                padding-top: 1rem;
-            }
-            .header {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            .header-poster {
-                justify-content: center;
-            }
-            .logo-area .tagline {
-                border-left: none;
-                padding-left: 0;
-            }
-        }
-
-        /* ===== MAP TABS ===== */
-        .map-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid var(--blood-dark);
-            padding-bottom: 0.5rem;
-        }
-
-        .map-tab {
-            background: transparent;
-            border: 2px solid var(--blood-dark);
-            color: var(--text-muted);
-            padding: 0.65rem 1.8rem;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: 0.25s;
             position: relative;
         }
 
-        .map-tab:hover {
-            border-color: var(--blood);
-            color: #f0d0d0;
-            background: rgba(130, 0, 0, 0.15);
+        .main-heading h1::after {
+            content: "⚡";
+            font-size: 2.8rem;
+            -webkit-text-fill-color: initial;
+            color: #f5c842;
+            margin-left: 12px;
+            display: inline-block;
+            animation: pulse 1.8s ease-in-out infinite;
         }
 
-        .map-tab.active {
-            background: var(--blood-dark);
-            border-color: var(--blood);
-            color: #fff;
-            box-shadow: 0 0 25px rgba(130, 0, 0, 0.3);
+        .main-heading .sub-tag {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #aab8c9;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 6px;
+            -webkit-text-fill-color: #aab8c9;
+            background: none;
         }
 
-        .map-tab .badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--blood);
-            color: #fff;
-            font-size: 0.6rem;
-            padding: 2px 8px;
-            border-radius: 20px;
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(12deg);
+            }
+        }
+
+        /* ===== LOGO / IMAGE SECTION ===== */
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 2rem;
+            border: 1px dashed rgba(255, 215, 0, 0.25);
+        }
+
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .logo-box .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, #2a3748, #0f151e);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.6rem;
+            color: #f5c842;
+            border: 3px solid #f5c842;
+            box-shadow: 0 0 30px rgba(245, 200, 66, 0.2);
+            transition: 0.3s;
+        }
+
+        .logo-box .logo-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(245, 200, 66, 0.4);
+        }
+
+        .logo-box span {
+            font-size: 0.9rem;
+            color: #8899aa;
+            letter-spacing: 1px;
+        }
+
+        .game-banner {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-banner .img-card {
+            background: #1f2a37;
+            padding: 0.6rem 1.8rem 0.6rem 1.2rem;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #2f3d4e;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #d4e0ed;
+            transition: 0.25s;
+        }
+
+        .game-banner .img-card i {
+            font-size: 1.6rem;
+            color: #f5c842;
+        }
+
+        .game-banner .img-card:hover {
+            background: #2a384b;
+            border-color: #f5c842;
+            transform: translateY(-3px);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 0.9rem 3rem;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.25rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-register {
+            background: linear-gradient(135deg, #f5c842, #e6a800);
+            color: #0b0e14;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(245, 200, 66, 0.4);
+        }
+
+        .btn-join {
+            background: transparent;
+            color: #f5c842;
+            border: 2.5px solid #f5c842;
+        }
+
+        .btn-join:hover {
+            background: #f5c842;
+            color: #0b0e14;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(245, 200, 66, 0.25);
+        }
+
+        /* ===== TWO-COLUMN LAYOUT ===== */
+        .row-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 860px) {
+            .row-split {
+                grid-template-columns: 1fr;
+                gap: 2.8rem;
+            }
         }
 
         /* ===== REGISTRATION FORM ===== */
-        .form-panel {
-            display: none;
-            background: rgba(10, 0, 0, 0.75);
-            backdrop-filter: blur(6px);
-            border: 1px solid var(--border-blood);
-            border-radius: 20px;
-            padding: 2rem 2rem 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8), inset 0 0 80px rgba(60, 0, 0, 0.08);
-            animation: fadeUp 0.35s ease;
+        .form-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(4px);
         }
 
-        .form-panel.active {
-            display: block;
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .form-panel h2 {
-            font-size: 1.6rem;
-            color: #f0d0d0;
-            letter-spacing: 2px;
-            border-left: 5px solid var(--blood);
-            padding-left: 1rem;
+        .form-section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f5c842;
             margin-bottom: 1.8rem;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem 2rem;
-        }
-
-        @media (max-width: 720px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .form-panel {
-                padding: 1.5rem 1rem;
-            }
-            .map-tabs {
-                justify-content: center;
-            }
+        .form-section h2 i {
+            font-size: 2rem;
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
+            display: block;
+            font-size: 0.9rem;
             font-weight: 600;
+            color: #b0c4db;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
         }
 
-        .form-group label .required {
-            color: var(--red-light);
-            margin-left: 4px;
+        .form-group label i {
+            margin-right: 8px;
+            color: #f5c842;
+            width: 20px;
         }
 
         .form-group input,
         .form-group select {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid var(--border-blood);
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
-            color: #f0e0e0;
-            font-size: 0.95rem;
-            transition: 0.2s;
-            outline: none;
             width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: #1a232e;
+            border: 1.5px solid #2c3a4a;
+            border-radius: 14px;
+            color: #fff;
+            font-size: 1rem;
+            transition: 0.25s;
+            outline: none;
         }
 
         .form-group input:focus,
         .form-group select:focus {
-            border-color: var(--blood);
-            box-shadow: 0 0 20px rgba(130, 0, 0, 0.25);
-            background: rgba(20, 0, 0, 0.7);
+            border-color: #f5c842;
+            box-shadow: 0 0 0 4px rgba(245, 200, 66, 0.15);
+            background: #1f2b39;
         }
 
         .form-group input::placeholder {
-            color: #6a4a4a;
+            color: #6a7e94;
         }
 
-        .form-group select option {
-            background: #0a0000;
-            color: #f0e0e0;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
         }
 
-        /* role checkboxes */
-        .role-group {
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f5c842, #e6a800);
+            border: none;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0b0e14;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 0.8rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem 1.5rem;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.7rem 1rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-blood);
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
         }
 
-        .role-group label {
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(245, 200, 66, 0.35);
+        }
+
+        /* ===== TABLE & LIST ===== */
+        .info-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 2rem;
+            padding: 1.8rem 1.8rem 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.08);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f5c842;
+            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            color: #e0c8c8;
-            text-transform: none;
-            letter-spacing: 0.5px;
-            cursor: pointer;
+            gap: 10px;
         }
 
-        .role-group input[type="checkbox"] {
-            accent-color: var(--blood);
-            width: 17px;
-            height: 17px;
-            cursor: pointer;
-            filter: drop-shadow(0 0 4px rgba(180, 0, 0, 0.3));
+        .info-card h3 i {
+            font-size: 1.5rem;
         }
 
-        .file-input-wrapper {
-            position: relative;
-        }
-
-        .file-input-wrapper input[type="file"] {
-            padding: 0.5rem 0.5rem;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px dashed var(--border-blood);
-            border-radius: 10px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+        /* TABLE */
+        .styled-table {
             width: 100%;
-            cursor: pointer;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            border-radius: 16px;
+            overflow: hidden;
         }
 
-        .file-input-wrapper input[type="file"]::file-selector-button {
-            background: var(--blood-dark);
-            border: none;
-            color: #f0d0d0;
-            padding: 0.4rem 1.2rem;
+        .styled-table thead {
+            background: #1f2a37;
+        }
+
+        .styled-table thead th {
+            padding: 0.9rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: #f5c842;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+
+        .styled-table tbody td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #1f2a37;
+            color: #d4e0ed;
+        }
+
+        .styled-table tbody tr:hover {
+            background: rgba(245, 200, 66, 0.05);
+        }
+
+        .styled-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            background: #2a384b;
+            padding: 0.25rem 1rem;
             border-radius: 30px;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-right: 12px;
-            cursor: pointer;
+            color: #f5c842;
+        }
+
+        /* LIST */
+        .custom-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .custom-list li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0.7rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 14px;
+            border-left: 4px solid #f5c842;
+            color: #cbdae8;
+            font-weight: 500;
             transition: 0.2s;
         }
 
-        .file-input-wrapper input[type="file"]::file-selector-button:hover {
-            background: var(--blood);
-            box-shadow: 0 0 16px rgba(130, 0, 0, 0.3);
+        .custom-list li:hover {
+            background: rgba(245, 200, 66, 0.07);
+            transform: translateX(6px);
         }
 
-        .team-preview {
-            margin-top: 6px;
-            max-width: 120px;
-            max-height: 80px;
-            border-radius: 8px;
-            border: 1px solid var(--border-blood);
-            display: none;
-            object-fit: cover;
-        }
-
-        .submit-btn {
-            grid-column: 1 / -1;
-            background: var(--blood-dark);
-            border: 2px solid var(--blood);
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 0.9rem 2rem;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: 0.25s;
-            margin-top: 0.8rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 300px;
-            justify-self: center;
-        }
-
-        .submit-btn:hover {
-            background: var(--blood);
-            border-color: var(--red-light);
-            box-shadow: 0 0 40px rgba(180, 0, 0, 0.35);
-            transform: scale(1.02);
-        }
-
-        /* ===== REGISTRATIONS LIST ===== */
-        .reg-list {
-            margin-top: 2rem;
-            background: rgba(10, 0, 0, 0.5);
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--border-blood);
-        }
-
-        .reg-list h3 {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--blood-dark);
-            padding-bottom: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .reg-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(100, 0, 0, 0.2);
-            font-size: 0.9rem;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .reg-item .name {
-            color: #f0d0d0;
-            font-weight: 600;
-        }
-
-        .reg-item .map-tag {
-            background: var(--blood-dark);
-            padding: 2px 14px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #e6b0b0;
-            border: 1px solid var(--border-blood);
-        }
-
-        .reg-item .role-tag {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
-
-        .footer {
-            margin-top: 3.5rem;
+        .custom-list li i {
+            color: #f5c842;
+            font-size: 1.2rem;
+            width: 28px;
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            border-top: 1px solid var(--blood-dark);
-            padding-top: 2rem;
-            opacity: 0.6;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
+        /* ===== QR CODE ===== */
+        .qr-section {
+            margin-top: 2.5rem;
+            padding: 2rem 1.8rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
-        ::-webkit-scrollbar-track {
-            background: #0a0000;
+
+        .qr-section h3 {
+            font-size: 1.6rem;
+            color: #f5c842;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        ::-webkit-scrollbar-thumb {
-            background: var(--blood-dark);
-            border-radius: 10px;
+
+        .qr-section p {
+            color: #8899aa;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--blood);
+
+        .qr-box {
+            width: 160px;
+            height: 160px;
+            background: #fff;
+            border-radius: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 4px solid #f5c842;
+            box-shadow: 0 0 50px rgba(245, 200, 66, 0.15);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .qr-box:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 70px rgba(245, 200, 66, 0.25);
+        }
+
+        .qr-box .qr-placeholder {
+            font-size: 5rem;
+            color: #0b0e14;
+            background: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .qr-box .qr-placeholder small {
+            font-size: 1rem;
+            display: block;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin-top: 2px;
+            color: #555;
+        }
+
+        .qr-box .scan-me {
+            position: absolute;
+            bottom: -14px;
+            background: #f5c842;
+            color: #0b0e14;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ===== RESPONSIVE TWEAKS ===== */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .main-heading h1 {
+                font-size: 2.6rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.8rem;
+                font-size: 1rem;
+            }
+
+            .logo-box .logo-placeholder {
+                width: 80px;
+                height: 80px;
+                font-size: 2.8rem;
+            }
+
+            .qr-box {
+                width: 130px;
+                height: 130px;
+            }
+
+            .qr-box .qr-placeholder {
+                font-size: 3.8rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .main-heading h1 {
+                font-size: 2rem;
+            }
+
+            .form-section {
+                padding: 1.2rem 1rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- ===== BACKGROUND ===== -->
-    <div class="bg-layer"></div>
+    <div class="container">
 
-    <!-- ===== APP ===== -->
-    <div class="app-wrapper">
-
-        <!-- HEADER -->
-        <header class="header">
-            <div class="logo-area">
-                <h1>HUNGAMA</h1>
-                <div class="tagline">Esports · Tournament</div>
-            </div>
-            <div class="header-poster">
-                <button class="poster-upload-btn" onclick="document.getElementById('posterInput').click()">
-                    🏆 Add Poster
-                </button>
-                <input type="file" id="posterInput" accept="image/*" style="display:none" onchange="previewPoster(event)" />
-                <img id="posterPreview" alt="Poster preview" />
-            </div>
-        </header>
-
-        <!-- QR PAYMENT (no UPI) -->
-        <section class="qr-section">
-            <div class="qr-left">
-                <div class="qr-box">
-                    <div id="qrcode"></div>
-                </div>
-                <div class="qr-info">
-                    <h3>⚡ Pay Tournament Fee</h3>
-                    <p>Scan QR code to pay</p>
-                    <span class="fee">₹ 299 /-</span>
-                </div>
-            </div>
-            <div class="qr-right">
-                <strong>📱 +91 98765 43210</strong>
-                <span>Contact for support</span>
-                <div style="margin-top:6px; font-size:0.75rem; opacity:0.7;">After payment, fill registration</div>
-            </div>
-        </section>
-
-        <!-- MAP TABS -->
-        <div class="map-tabs" id="mapTabs">
-            <button class="map-tab active" data-map="erangle">Erangle <span class="badge">5</span></button>
-            <button class="map-tab" data-map="livik">Livik <span class="badge">3</span></button>
-            <button class="map-tab" data-map="sanao">Sanao <span class="badge">4</span></button>
-            <button class="map-tab" data-map="vikandi">Vikandi <span class="badge">2</span></button>
-            <button class="map-tab" data-map="tdm">TDM <span class="badge">6</span></button>
+        <!-- ===== HEADING ===== -->
+        <div class="main-heading">
+            <h1>Hungama Esports</h1>
+            <span class="sub-tag"><i class="fas fa-gamepad" style="margin-right:8px;"></i> Battle Royale · Tournaments · Glory</span>
         </div>
 
-        <!-- ===== FORMS (5 maps) ===== -->
-        <div id="formContainer">
+        <!-- ===== IMAGES & LOGO ===== -->
+        <div class="logo-section">
+            <div class="logo-box">
+                <div class="logo-placeholder">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <span>🏆 Official Logo</span>
+            </div>
 
-            <!-- Erangle -->
-            <div class="form-panel active" data-map="erangle">
-                <h2>🔥 Erangle · Registration</h2>
-                <form class="reg-form" data-map="erangle" onsubmit="handleSubmit(event)">
-                    <div class="form-grid">
-                        <div class="form-group"><label>Player Name <span class="requi
+            <div class="game-banner">
+                <div class="img-card">
+                    <i class="fas fa-fire"></i> BGMI
+                </div>
+                <div class="img-card">
+                    <i class="fas fa-robot"></i> Free Fire
+                </div>
+                <div class="img-card">
+                    <i class="fas fa-chess-queen"></i> COD
+                </div>
+                <div class="img-card">
+                    <i class="fas fa-skull"></i> Valorant
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== BUTTONS ===== -->
+        <div class="btn-group">
+            <button class="btn btn-register" onclick="document.getElementById('registerForm').scrollIntoView({behavior:'smooth'});">
+                <i class="fas fa-user-plus"></i> Register
+            </button>
+            <button class="btn btn-join" onclick="alert('🎮 Join our Discord / WhatsApp community!')">
+                <i class="fas fa-users"></i> Join
+            </button>
+        </div>
+
+        <!-- ===== ROW: FORM + TABLE/LIST ===== -->
+        <div class="row-split">
+
+            <!-- ===== REGISTRATION FORM ===== -->
+            <div class="form-section" id="registerForm">
+                <h2><i class="fas fa-clipboard-list"></i> Registration</h2>
+
+                <form onsubmit="event.preventDefault(); alert('✅ Registration submitted successfully!');">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Player Name</label>
+                        <input type="text" placeholder="e.g. ProGamer_47" required />
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-id-card"></i> UID</label>
+                            <input type="text" placeholder="1234567890" required />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-users"></i> Team Name</label>
+                            <input type="text" placeholder="e.g. Venom Squad" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" placeholder="you@example.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Mobile</label>
+                            <input type="tel" placeholder="+91 98765 43210" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-trophy"></i> Game</label>
+                        <select>
+                            <option>BGMI</option>
+                            <option>Free Fire</option>
+                            <option>Call of Duty</option>
+                            <option>Valorant</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="form-submit">
+                        <i class="fas fa-paper-plane"></i> Register Now
+                    </button>
+                </form>
+            </div>
+
+            <!-- ===== TABLE + LIST ===== -->
+            <div class="info-section">
+
+                <!-- TABLE -->
+                <div class="info-card">
+                    <h3><i class="fas fa-table"></i> Leaderboard</h3>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Team</th>
+                                <th>Points</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><i class="fas fa-crown" style="color:#f5c842;"></i> Venom</td>
+                                <td>2840</td>
+                                <td><span class="badge">Qualified</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Fury X</td>
+                                <td>2710</td>
+                                <td><span class="badge">Qualified</span></td>
+                            </tr>
+       
