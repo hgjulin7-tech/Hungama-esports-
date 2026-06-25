@@ -489,15 +489,32 @@ if (viewBtn) {
 })
 
 
+const adminBtn = document.getElementById("adminBtn");
+const adminPanel = document.getElementById("adminPanel");
+
+adminBtn.addEventListener("click", () => {
+    if (adminPanel.style.display === "none") {
+        adminPanel.style.display = "block";
+    } else {
+        adminPanel.style.display = "none";
+    }
+});
 
 const password = prompt("Enter Admin Password");
 
-if (password === "Hungama123") {
-adminPanel.style.display = "block";
-} else {
-alert("❌ Wrong Password");
-                }
+const adminBtn = document.getElementById("adminBtn");
+const adminPanel = document.getElementById("adminPanel");
 
-document.getElementById("adminBtn").addEventListener("click", function () {
-    alert("Admin Panel Open");
+adminBtn.addEventListener("click", () => {
+    const password = prompt("Enter Admin Password");
+
+    if (password === "Hungama123") {
+        if (adminPanel.style.display === "none") {
+            adminPanel.style.display = "block";
+        } else {
+            adminPanel.style.display = "none";
+        }
+    } else {
+        alert("❌ Wrong Password");
+    }
 });
