@@ -1,527 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hungama Esports</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    body {
+      background: #0a0c10;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
 
-<title>Hungama Esports | BGMI Tournament</title>
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(10, 12, 16, 0.95);
+      border-bottom: 1px solid #1f2a3a;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-<link rel="stylesheet" href="style.css">
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    .logo span {
+      color: #f5a623;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 35px;
+    }
+    nav ul li a {
+      color: #b0b8c5;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #f5a623;
+    }
+    .nav-btn {
+      background: #f5a623;
+      color: #0a0c10 !important;
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-weight: 700 !important;
+    }
+    .nav-btn:hover {
+      background: #ffb83d;
+    }
 
+    /* ===== HERO ===== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 60px 60px;
+      background: radial-gradient(circle at 10% 30%, #141a26, #0a0c10 70%);
+      min-height: 80vh;
+    }
+    .hero-content {
+      max-width: 50%;
+    }
+    .hero-content h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .hero-content h1 span {
+      color: #f5a623;
+    }
+    .hero-content p {
+      font-size: 18px;
+      color: #9aa4b3;
+      margin: 25px 0 35px;
+      max-width: 500px;
+    }
+    .btn-primary {
+      background: #f5a623;
+      color: #0a0c10;
+      padding: 14px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      display: inline-block;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #ffb83d;
+      transform: scale(1.03);
+    }
+
+    .hero-image {
+      background: #1f2a3a;
+      width: 400px;
+      height: 300px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 24px;
+      color: #f5a623;
+      border: 1px solid #2d3b4f;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+    .hero-image i {
+      font-size: 80px;
+      margin-right: 15px;
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 70px 60px;
+    }
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .section-title span {
+      color: #f5a623;
+    }
+    .section-sub {
+      text-align: center;
+      color: #9aa4b3;
+      margin-bottom: 50px;
+      font-size: 17px;
+    }
+
+    /* ===== CARDS ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #141a26;
+      padding: 35px 25px;
+      border-radius: 16px;
+      border: 1px solid #1f2a3a;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .card:hover {
+      border-color: #f5a623;
+      transform: translateY(-8px);
+    }
+    .card i {
+      font-size: 40px;
+      color: #f5a623;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: #9aa4b3;
+      font-size: 14px;
+    }
+
+    /* ===== RISING STAR (Original jaisa) ===== */
+    .rising-star {
+      background: #0f131c;
+      border-top: 1px solid #1f2a3a;
+      border-bottom: 1px solid #1f2a3a;
+    }
+    .rising-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+    .rising-text h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+    }
+    .rising-text h2 span {
+      color: #f5a623;
+    }
+    .rising-text p {
+      color: #9aa4b3;
+      font-size: 17px;
+      margin: 20px 0 30px;
+      max-width: 500px;
+    }
+    .rising-badge {
+      background: #1f2a3a;
+      padding: 30px 40px;
+      border-radius: 20px;
+      border-left: 4px solid #f5a623;
+      min-width: 250px;
+    }
+    .rising-badge .big {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 42px;
+      font-weight: 900;
+      color: #f5a623;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #06080b;
+      padding: 40px 60px 25px;
+      border-top: 1px solid #1f2a3a;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-col h4 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .footer-col p, .footer-col a {
+      color: #7a8494;
+      text-decoration: none;
+      display: block;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+    .footer-col a:hover {
+      color: #f5a623;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #1a2332;
+      color: #5a6474;
+      font-size: 14px;
+    }
+    .footer-bottom span {
+      color: #f5a623;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      header { padding: 15px 30px; flex-wrap: wrap; gap: 15px; }
+      nav ul { gap: 18px; flex-wrap: wrap; }
+      .hero { flex-direction: column; text-align: center; padding: 50px 30px; }
+      .hero-content { max-width: 100%; }
+      .hero-content p { margin-left: auto; margin-right: auto; }
+      .hero-image { width: 100%; max-width: 350px; height: 200px; margin-top: 30px; }
+      section { padding: 50px 25px; }
+      .rising-content { flex-direction: column; text-align: center; }
+      .rising-text p { margin-left: auto; margin-right: auto; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 32px; }
+      .logo { font-size: 22px; }
+      .footer-grid { flex-direction: column; text-align: center; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-
-<header class="header">
-
-<div class="logo">
-🏆 HUNGAMA <span>ESPORTS</span>
-</div>
-
-<nav>
-
-<a href="#home">Home</a>
-
-<a href="#tournament">Tournament</a>
-
-<a href="#register">Register</a>
-
-<a href="#leaderboard">Leaderboard</a>
-
-<a href="#contact">Contact</a>
-
-</nav>
-
+<!-- HEADER -->
+<header>
+  <div class="logo">Hungama<span>Esport</span></div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">News</a></li>
+      <li><a href="#" class="nav-btn">Sign In</a></li>
+    </ul>
+  </nav>
 </header>
 
-<!-- ================= HERO ================= -->
-
-<section id="home" class="hero">
-
-<div class="overlay">
-
-<h1>
-PLAY LIKE
-<br>
-<span>A CHAMPION</span>
-</h1>
-
-<p>
-India's Premium BGMI Tournament Platform
-</p>
-
-<a href="#register" class="btn">
-REGISTER NOW
-</a>
-
-</div>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>India's <span>New Esports</span> Hub</h1>
+    <p>HungamaEsport presents a platform to elevate emerging athletes and creators — helping them reach new heights in their careers.</p>
+    <a href="#" class="btn-primary"><i class="fas fa-rocket" style="margin-right:10px;"></i> Get Started</a>
+  </div>
+  <div class="hero-image">
+    <i class="fas fa-gamepad"></i> Hungama
+  </div>
 </section>
 
-<!-- ================= TOURNAMENT ================= -->
-
-<section id="tournament" class="cards">
-
-<div class="card">
-
-<h2>🔥 BGMI LIVIK TOURNAMENT</h2>
-
-<p><b>Entry Fee :</b> ₹50</p>
-
-<p><b>1st Prize :</b> ₹150</p>
-
-<p><b>2nd Prize :</b> ₹100</p>
-
-<p><b>3rd Prize :</b> ₹50</p>
-
-<p><b>Date :</b> 30 June 2026</p>
-
-<p><b>Time :</b> 6:00 PM</p>
-
-<p><b>Status :</b>
-<span id="status">Loading...</span>
-</p>
-
-<p><b>Countdown :</b>
-<span id="countdown">Loading...</span>
-</p>
-
-<p><b>Current Time :</b>
-<span id="liveTime">Loading...</span>
-</p>
-
-<a href="#register" class="btn">
-JOIN TOURNAMENT
-</a>
-
-</div>
-
-<div class="card">
-
-<h2>💳 PAYMENT QR</h2>
-
-<p>Scan QR Code & Pay Entry Fee</p>
-
-<img src="f89ac5e8-5df2-4eb0-aceb-96f183080add.png"
-class="qr"
-alt="QR Code">
-
-<p>
-After payment upload screenshot in registration form.
-</p>
-
-</div>
-
+<!-- FEATURES / GAMES -->
+<section>
+  <h2 class="section-title">Our <span>Games</span></h2>
+  <p class="section-sub">Compete in India's most popular esports titles</p>
+  <div class="card-grid">
+    <div class="card">
+      <i class="fas fa-crosshairs"></i>
+      <h3>BGMI</h3>
+      <p>Battle Royale tournaments with massive prize pools.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-fire"></i>
+      <h3>Free Fire</h3>
+      <p>Fast-paced action and daily cash giveaways.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-skull"></i>
+      <h3>Valorant</h3>
+      <p>5v5 competitive matches for pro-level players.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-futbol"></i>
+      <h3>eFootball</h3>
+      <p>Realistic football esports experience.</p>
+    </div>
+  </div>
 </section>
 
-<!-- ================= REGISTRATION ================= -->
-
-<section id="register">
-
-<div class="container">
-
-<h1>🏆 Tournament Registration</h1>
-
-<form id="registrationForm">
-
-<label for="teamName">Team Name</label>
-
-<input
-type="text"
-id="teamName"
-name="teamName"
-placeholder="Enter Team Name"
-required>
-
-<label for="player1Name">Player 1 Name</label>
-
-<input
-type="text"
-id="player1Name"
-name="player1Name"
-placeholder="Player 1 Name"
-required>
-
-<label for="player1UID">Player 1 BGMI UID</label>
-
-<input
-type="number"
-id="player1UID"
-name="player1UID"
-placeholder="BGMI UID"
-required>
-
-<label for="player1IGN">Player 1 IGN</label>
-
-<input
-type="text"
-id="player1IGN"
-name="player1IGN"
-placeholder="In Game Name"
-required>
-
-<label for="player1Role">Player 1 Role</label>
-
-<select
-id="player1Role"
-name="player1Role">
-
-<option value="IGL">IGL</option>
-
-<option value="Rusher">Rusher</option>
-
-<option value="Assaulter">Assaulter</option>
-
-<option value="Spotter">Spotter</option>
-
-</select>
-
-<label for="mobile">Mobile Number</label>
-
-<input
-type="tel"
-id="mobile"
-name="mobile"
-placeholder="Mobile Number"
-required>
-
-<label for="whatsapp">WhatsApp Number</label>
-
-<input
-type="tel"
-id="whatsapp"
-name="whatsapp"
-placeholder="WhatsApp Number"
-required>
-
-<label for="tournamentType">Tournament Type</label>
-
-<select
-id="tournamentType"
-name="tournamentType"
-onchange="showPlayers()">
-
-<option value="">Select Tournament Type</option>
-
-<option value="solo">Solo</option>
-
-<option value="duo">Duo</option>
-
-<option value="squad">Squad</option>
-
-</select>
-
-<label for="map">Map</label>
-
-<select id="map" name="map">
-
-<option>Livik</option>
-
-<option>Erangel</option>
-
-<option>Miramar</option>
-
-<option>Sanhok</option>
-
-</select>
-
-<div id="duoFields" style="display:none;">
-    <!-- ================= PLAYER 2 ================= -->
-
-<label for="player2Name">Player 2 Name</label>
-
-<input
-type="text"
-id="player2Name"
-name="player2Name"
-placeholder="Player 2 Name">
-
-<label for="player2UID">Player 2 BGMI UID</label>
-
-<input
-type="number"
-id="player2UID"
-name="player2UID"
-placeholder="BGMI UID">
-
-<label for="player2IGN">Player 2 IGN</label>
-
-<input
-type="text"
-id="player2IGN"
-name="player2IGN"
-placeholder="In Game Name">
-
-<label for="player2Role">Player 2 Role</label>
-
-<select
-id="player2Role"
-name="player2Role">
-
-<option value="IGL">IGL</option>
-<option value="Rusher">Rusher</option>
-<option value="Assaulter">Assaulter</option>
-<option value="Spotter">Spotter</option>
-
-</select>
-
-</div>
-
-<!-- ================= PLAYER 3 & PLAYER 4 ================= -->
-
-<div id="squadFields" style="display:none;">
-
-<h2>Player 3</h2>
-
-<label for="player3Name">Player 3 Name</label>
-
-<input
-type="text"
-id="player3Name"
-name="player3Name"
-placeholder="Player 3 Name">
-
-<label for="player3UID">Player 3 BGMI UID</label>
-
-<input
-type="number"
-id="player3UID"
-name="player3UID"
-placeholder="BGMI UID">
-
-<label for="player3IGN">Player 3 IGN</label>
-
-<input
-type="text"
-id="player3IGN"
-name="player3IGN"
-placeholder="In Game Name">
-
-<label for="player3Role">Player 3 Role</label>
-
-<select
-id="player3Role"
-name="player3Role">
-
-<option value="IGL">IGL</option>
-<option value="Rusher">Rusher</option>
-<option value="Assaulter">Assaulter</option>
-<option value="Spotter">Spotter</option>
-
-</select>
-
-<h2>Player 4</h2>
-
-<label for="player4Name">Player 4 Name</label>
-
-<input
-type="text"
-id="player4Name"
-name="player4Name"
-placeholder="Player 4 Name">
-
-<label for="player4UID">Player 4 BGMI UID</label>
-
-<input
-type="number"
-id="player4UID"
-name="player4UID"
-placeholder="BGMI UID">
-
-<label for="player4IGN">Player 4 IGN</label>
-
-<input
-type="text"
-id="player4IGN"
-name="player4IGN"
-placeholder="In Game Name">
-
-<label for="player4Role">Player 4 Role</label>
-
-<select
-id="player4Role"
-name="player4Role">
-
-<option value="IGL">IGL</option>
-<option value="Rusher">Rusher</option>
-<option value="Assaulter">Assaulter</option>
-<option value="Spotter">Spotter</option>
-
-</select>
-
-<label for="payment">Payment Screenshot</label>
-
-<input
-type="file"
-id="payment"
-name="payment"
-accept="image/*">
-
-<label>
-
-<input
-type="checkbox"
-id="agree"
-required>
-
-I agree to all Tournament Rules.
-
-</label>
-
-<button type="submit">
-SUBMIT REGISTRATION
-</button>
-
-</div>
-
-</form>
-
-</div>
-
-    </section>
-    <!-- ================= LEADERBOARD ================= -->
-
-<section id="leaderboard">
-
-<div class="container">
-
-<h1>🏆 Leaderboard</h1>
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Rank</th>
-
-<th>Team</th>
-
-<th>Kills</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>1</td>
-
-<td>Hungama Warriors</td>
-
-<td>32</td>
-
-</tr>
-
-<tr>
-
-<td>2</td>
-
-<td>Alpha Squad</td>
-
-<td>28</td>
-
-</tr>
-
-<tr>
-
-<td>3</td>
-
-<td>Legend Esports</td>
-
-<td>25</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
+<!-- RISING STAR SECTION (Original jaisa) -->
+<section class="rising-star">
+  <div class="rising-content">
+    <div class="rising-text">
+      <h2>Rising <span>Star</span></h2>
+      <p>A program designed to elevate emerging esports athletes and content creators, helping them reach new heights in their careers.</p>
+      <a href="#" class="btn-primary" style="background:#fff; color:#0a0c10;">Learn More</a>
+    </div>
+    <div class="rising-badge">
+      <div class="big">#RISE</div>
+      <p style="color:#b0b8c5; margin-top:8px;">Apply Now</p>
+    </div>
+  </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
-
-<section id="contact">
-
-<div class="container">
-
-<h1>📞 Contact & Support</h1>
-
-<h3>Instagram</h3>
-
-<p>
-
-<a href="https://www.instagram.com/official_hungama_esport" target="_blank">
-
-Official Hungama Esport
-
-</a>
-
-</p>
-
-<p>
-
-<a href="https://www.instagram.com/hungama_esport" target="_blank">
-
-Hungama Esport
-
-</a>
-
-</p>
-
-<h3>YouTube</h3>
-
-<p>
-
-<a href="https://youtube.com/@hungama_esport" target="_blank">
-
-Hungama Esport Channel
-
-</a>
-
-</p>
-
-<h3>WhatsApp Support</h3>
-
-<p>
-
-<a href="https://wa.me/91XXXXXXXXXX" target="_blank">
-
-Chat on WhatsApp
-
-</a>
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
-
-<p>
-
-© 2026 Hungama Esports. All Rights Reserved.
-
-</p>
-
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4 style="color:#f5a623;">HungamaEsport</h4>
+      <p>India ka naya esports destination.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#">Tournaments</a>
+      <a href="#">Teams</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Help Center</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 <span>HungamaEsport</span>. All rights reserved.
+  </div>
 </footer>
 
-<!-- ================= SCRIPT ================= -->
-
-<script src="script.js"></script>
-
 </body>
-
 </html>
